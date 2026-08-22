@@ -17,8 +17,8 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <SectionHeader
           subtitle="Why Choose Us"
-          title="The Pyramid Difference"
-          description="Every Pyramid Builders development is a testament to our uncompromising standards of quality, design, and attention to detail."
+          title="The Accomodations Difference"
+          description="Every Accomodations development is a testament to our uncompromising standards of quality, design, and attention to detail."
           light
         />
 

@@ -21,7 +21,7 @@ const GalleryPreview = () => {
         <SectionHeader
           subtitle="Gallery"
           title="A Closer Look"
-          description="Explore the craftsmanship and design details that define every Pyramid Builders residence."
+          description="Explore the craftsmanship and design details that define every Accomodations residence."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

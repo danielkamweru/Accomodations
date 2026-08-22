@@ -25,7 +25,7 @@ const Contact = () => {
               <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">Reach Out</span>
               <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground">We'd Love to<br />Hear From You</h2>
               <p className="mt-6 font-body text-sm font-light leading-relaxed text-muted-foreground">
-                Whether you're interested in one of our developments or simply want to learn more about Pyramid Builders, our team is here to help.
+                Whether you're interested in one of our developments or simply want to learn more about Accomodations, our team is here to help.
               </p>
 
               <div className="mt-10 space-y-6">

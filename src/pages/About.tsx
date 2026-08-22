@@ -50,7 +50,7 @@ const About = () => {
               <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">Our Legacy</span>
               <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground md:text-5xl">Crafting Homes,<br />Building Legacies</h2>
               <p className="mt-6 font-body text-sm font-light leading-relaxed text-muted-foreground">
-                Pyramid Builders was founded with a singular vision: to create exceptional residential developments that redefine luxury living in Nairobi. Based in the prestigious Lavington neighborhood, we have established ourselves as a premier developer of luxury townhouses.
+                Accomodations was founded with a singular vision: to create exceptional residential developments that redefine luxury living in Nairobi. Based in the prestigious Lavington neighborhood, we have established ourselves as a premier developer of luxury townhouses.
               </p>
               <p className="mt-4 font-body text-sm font-light leading-relaxed text-muted-foreground">
                 With 7 completed projects and a reputation for architectural excellence, we continue to raise the standard for premium residential developments in Kenya's capital.
@@ -80,7 +80,7 @@ const About = () => {
       {/* Leadership */}
       <section className="bg-background py-28 lg:py-36">
         <div className="container mx-auto px-6 lg:px-12">
-          <SectionHeader subtitle="Leadership" title="Our Team" description="Meet the visionaries behind Pyramid Builders." />
+          <SectionHeader subtitle="Leadership" title="Our Team" description="Meet the visionaries behind Accomodations." />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {leaders.map((leader, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>

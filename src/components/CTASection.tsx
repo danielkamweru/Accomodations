@@ -18,7 +18,7 @@ const CTASection = () => {
             Discover Your Next Home<br />in Lavington
           </h2>
           <p className="mx-auto mt-6 max-w-xl font-body text-sm font-light leading-relaxed text-primary-foreground/70">
-            Schedule a private viewing of our luxury townhouse developments and experience the Pyramid Builders difference firsthand.
+            Schedule a private viewing of our luxury townhouse developments and experience the Accomodations difference firsthand.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link

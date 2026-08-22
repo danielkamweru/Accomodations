@@ -45,7 +45,7 @@ const BrandIntro = () => {
         <SectionHeader
           subtitle="Who We Are"
           title="Crafting Luxury Residences"
-          description="Pyramid Builders is a premium residential developer dedicated to creating exceptional townhouses in Lavington, Nairobi. Every development reflects our commitment to architectural excellence, refined finishes, and thoughtful design."
+          description="Accomodations is a premium residential developer dedicated to creating exceptional townhouses in Lavington, Nairobi. Every development reflects our commitment to architectural excellence, refined finishes, and thoughtful design."
         />
 
         <div className="mt-20 grid gap-8 md:grid-cols-3">

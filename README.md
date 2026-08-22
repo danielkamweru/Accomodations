@@ -1,6 +1,6 @@
-# Pyramid Builders
+# Accomodations
 
-Marketing site for Pyramid Builders, built on a standard React frontend stack.
+Marketing site for Accomodations, built on a standard React frontend stack.
 
 ## Frontend stack
 

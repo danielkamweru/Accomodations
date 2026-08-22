@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="font-heading text-2xl font-semibold tracking-wider">
-              PYRAMID<span className="font-light text-accent"> BUILDERS</span>
+              ACCOMODATIONS
             </h3>
             <p className="mt-4 font-body text-sm font-light leading-relaxed opacity-80">
               Premium residential developer crafting luxury townhouses in Lavington, Nairobi. Where architectural excellence meets refined living.
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 opacity-60" />
-                <span className="font-body text-sm font-light opacity-80">info@pyramidbuilders.co.ke</span>
+                <span className="font-body text-sm font-light opacity-80">info@accomodations.co.ke</span>
               </li>
             </ul>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
 
         <div className="mt-16 border-t border-primary-foreground/10 pt-8 text-center">
           <p className="font-body text-xs font-light opacity-50">
-            © {new Date().getFullYear()} Pyramid Builders. All rights reserved.
+            © {new Date().getFullYear()} Accomodations. All rights reserved.
           </p>
         </div>
       </div>

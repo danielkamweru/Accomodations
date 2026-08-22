@@ -42,11 +42,11 @@ const Navbar = () => {
         <Link
           to="/"
           className="z-50 block"
-          aria-label="Pyramid Builders home"
+          aria-label="Accomodations home"
         >
           <img
             src={logo}
-            alt="Pyramid Builders"
+            alt="Accomodations"
             className="h-14 w-auto sm:h-16"
           />
         </Link>
