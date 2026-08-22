@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 95%;
+    --foreground: 0 0% 12%;
+
+    --card: 36 33% 95%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 36 33% 95%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 155 60% 15%;
+    --primary-foreground: 36 33% 95%;
+
+    --secondary: 32 24% 79%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 32 24% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 36 33% 57%;
+    --accent-foreground: 0 0% 12%;
+
+    --gold: 36 33% 57%;
+    --gold-foreground: 0 0% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 32 24% 82%;
+    --input: 32 24% 82%;
+    --ring: 155 60% 15%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 36 33% 95%;
+    --sidebar-primary: 36 33% 57%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 36 33% 95%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 36 33% 57%;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 36 33% 95%;
+    --card: 0 0% 15%;
+    --card-foreground: 36 33% 95%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 36 33% 95%;
+    --primary: 36 33% 57%;
+    --primary-foreground: 0 0% 12%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 36 33% 95%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 32 24% 70%;
+    --accent: 155 60% 15%;
+    --accent-foreground: 36 33% 95%;
+    --gold: 36 33% 57%;
+    --gold-foreground: 0 0% 12%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 36 33% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .heading-display {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-light tracking-wide;
+  }
+
+  .text-body {
+    font-family: 'Montserrat', sans-serif;
+    @apply font-light tracking-wide;
+  }
+}
