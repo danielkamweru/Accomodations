@@ -19,7 +19,7 @@ const AdminLayout = () => {
       <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-sidebar-border bg-sidebar">
         <div className="flex h-16 items-center px-6">
           <h1 className="font-heading text-lg font-semibold tracking-wider text-sidebar-foreground">
-            PYRAMID<span className="font-light text-sidebar-primary"> ADMIN</span>
+            ACCOMODATIONS<span className="font-light text-sidebar-primary"> ADMIN</span>
           </h1>
         </div>
         <nav className="flex-1 space-y-1 px-3 py-4">
