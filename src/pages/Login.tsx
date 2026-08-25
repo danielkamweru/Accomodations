@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function Login() {
-  const { login, loginWithGoogle } = useAuth();
+  const { login, loginWithGoogle, disabled } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: Location })?.from?.pathname ?? "/";
@@ -77,6 +77,11 @@ export default function Login() {
       <section className="bg-background py-20 lg:py-28">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mx-auto max-w-md">
+            {disabled && (
+              <div className="mb-6 border border-destructive/30 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
+                Authentication is currently unavailable. Please contact support or try again later.
+              </div>
+            )}
             <motion.form
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,7 +145,7 @@ export default function Login() {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || disabled}
                 className="w-full bg-primary py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
               >
                 {loading ? "Signing in…" : "Sign In"}
@@ -155,7 +160,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={handleGoogle}
-                disabled={loading}
+                disabled={loading || disabled}
                 className="flex w-full items-center justify-center gap-3 border border-border py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-muted disabled:opacity-60"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">

@@ -6,11 +6,13 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { user, loading } = useAuth();
+  const { user, loading, disabled } = useAuth();
   const location = useLocation();
 
-  // Don't render anything while Firebase resolves auth state.
-  // This prevents a flash of the login page for already-authenticated users.
+  if (disabled) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
   if (loading) return null;
 
   if (!user) {
