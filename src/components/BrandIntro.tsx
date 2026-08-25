@@ -3,9 +3,9 @@ import { motion, useInView } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 const stats = [
-  { value: 7, label: "Completed Projects", suffix: "" },
-  { value: 100, label: "Prime Lavington Locations", suffix: "%" },
-  { value: 7, label: "Luxury Developments", suffix: "+" },
+  { value: 12, label: "Demo Properties", suffix: "+" },
+  { value: 6, label: "Nairobi Neighbourhoods", suffix: "" },
+  { value: 100, label: "Verified Listings", suffix: "%" },
 ];
 
 const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -44,8 +44,8 @@ const BrandIntro = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <SectionHeader
           subtitle="Who We Are"
-          title="Crafting Luxury Residences"
-          description="Accomodations is a premium residential developer dedicated to creating exceptional townhouses in Lavington, Nairobi. Every development reflects our commitment to architectural excellence, refined finishes, and thoughtful design."
+          title="Kenyan Housing, Simplified"
+          description="Accomodations helps students and young professionals discover, compare, and choose suitable accommodation across Nairobi, Kiambu, and beyond — from affordable bedsitters to modern apartments."
         />
 
         <div className="mt-20 grid gap-8 md:grid-cols-3">

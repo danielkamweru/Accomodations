@@ -8,19 +8,19 @@ import "swiper/css/effect-fade";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",
-    title: "Luxury Living\nin Lavington",
-    subtitle: "Bespoke townhouses crafted for discerning families",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1920&q=80",
+    title: "Find Your Perfect\nRoom in Nairobi",
+    subtitle: "Discover student housing, bedsitters, studios, and apartments near campus, CBD, and transport routes.",
   },
   {
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
-    title: "Architectural\nExcellence",
-    subtitle: "Where design meets refined urban living",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1920&q=80",
+    title: "Compare\nAccommodation",
+    subtitle: "Filter by location, budget, amenities, and property type to find the right fit.",
   },
   {
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
-    title: "Your Sanctuary\nAwaits",
-    subtitle: "Premium residences in Nairobi's most coveted address",
+    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1920&q=80",
+    title: "Affordable Living\nAcross Kenya",
+    subtitle: "From Kasarani to Juja, Thika Road to Kilimani — explore options for every budget.",
   },
 ];
 
@@ -64,20 +64,20 @@ const HeroSlider = () => {
                     <p className="mt-6 max-w-lg font-body text-sm font-light tracking-wider text-background/80 md:text-base">
                       {slide.subtitle}
                     </p>
-                    <div className="mt-10 flex flex-wrap gap-4">
-                      <Link
-                        to="/projects"
-                        className="border border-background/30 bg-background/10 px-8 py-3.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-background backdrop-blur-sm transition-all hover:bg-background hover:text-foreground"
-                      >
-                        Explore Projects
-                      </Link>
-                      <Link
-                        to="/contact"
-                        className="bg-accent px-8 py-3.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
-                      >
-                        Contact Us
-                      </Link>
-                    </div>
+                      <div className="mt-10 flex flex-wrap gap-4">
+                        <Link
+                          to="/properties"
+                          className="border border-background/30 bg-background/10 px-8 py-3.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-background backdrop-blur-sm transition-all hover:bg-background hover:text-foreground"
+                        >
+                          Browse Properties
+                        </Link>
+                        <Link
+                          to="/contact"
+                          className="bg-accent px-8 py-3.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
+                        >
+                          Get in Touch
+                        </Link>
+                      </div>
                   </motion.div>
                 </div>
               </div>

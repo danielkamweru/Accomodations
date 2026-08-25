@@ -15,23 +15,23 @@ const CTASection = () => {
             Begin Your Journey
           </span>
           <h2 className="mt-6 font-heading text-4xl font-light tracking-wide text-primary-foreground md:text-5xl lg:text-6xl">
-            Discover Your Next Home<br />in Lavington
+            Discover Your Next\nHome in Kenya
           </h2>
           <p className="mx-auto mt-6 max-w-xl font-body text-sm font-light leading-relaxed text-primary-foreground/70">
-            Schedule a private viewing of our luxury townhouse developments and experience the Accomodations difference firsthand.
+            Browse verified accommodation options near universities, the CBD, and major transport routes. Save favourites, compare properties, and find what fits your budget.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
-              to="/contact"
+              to="/properties"
               className="bg-accent px-10 py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-accent-foreground transition-colors hover:bg-accent/90"
             >
-              Schedule Viewing
+              Browse Properties
             </Link>
             <Link
               to="/contact"
               className="border border-primary-foreground/30 px-10 py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Send Enquiry
+              Contact Us
             </Link>
           </div>
         </motion.div>

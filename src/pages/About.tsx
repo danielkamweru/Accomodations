@@ -5,16 +5,16 @@ import SectionHeader from "@/components/SectionHeader";
 import { Target, Eye, Heart, Award } from "lucide-react";
 
 const leaders = [
-  { name: "John Kamau", role: "Managing Director", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-  { name: "Sarah Wanjiku", role: "Head of Architecture", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
-  { name: "David Ochieng", role: "Project Director", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
+  { name: "Daniel Kamweru", role: "Founder", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
+  { name: "Wanjiku Njoroge", role: "Head of Product", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
+  { name: "James Otieno", role: "Community Lead", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
 ];
 
 const values = [
-  { icon: Award, title: "Excellence", description: "Uncompromising quality in every detail of construction and design." },
-  { icon: Target, title: "Precision", description: "Meticulous attention to architectural detail and finish." },
-  { icon: Heart, title: "Integrity", description: "Transparent dealings and honest relationships with our clients." },
-  { icon: Eye, title: "Vision", description: "Forward-thinking design that stands the test of time." },
+  { icon: Award, title: "Transparency", description: "Clear rent, deposit, and availability details on every listing." },
+  { icon: Target, title: "Accessibility", description: "Making housing discovery simple for students and young professionals across Kenya." },
+  { icon: Heart, title: "Trust", description: "Curated listings with honest descriptions and verified details." },
+  { icon: Eye, title: "Innovation", description: "Smart tools to compare, save, and find the best fit for your lifestyle and budget." },
 ];
 
 const About = () => {
@@ -31,7 +31,7 @@ const About = () => {
               Our Story
             </h1>
             <p className="mt-6 max-w-xl font-body text-sm font-light leading-relaxed text-primary-foreground/70">
-              Building legacy homes in Nairobi's most coveted neighborhood since our inception.
+              Making accommodation discovery simple, transparent, and accessible for Kenyan students and young professionals.
             </p>
           </motion.div>
         </div>
@@ -43,17 +43,17 @@ const About = () => {
           <div className="grid gap-16 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="aspect-[4/5] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="About" className="h-full w-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="About" className="h-full w-full object-cover" />
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-col justify-center">
               <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">Our Legacy</span>
-              <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground md:text-5xl">Crafting Homes,<br />Building Legacies</h2>
+              <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground md:text-5xl">Housing for the\nNext Generation</h2>
               <p className="mt-6 font-body text-sm font-light leading-relaxed text-muted-foreground">
-                Accomodations was founded with a singular vision: to create exceptional residential developments that redefine luxury living in Nairobi. Based in the prestigious Lavington neighborhood, we have established ourselves as a premier developer of luxury townhouses.
+                Accomodations was founded with a singular vision: to make finding accommodation in Kenya easier for students and young professionals. We believe everyone deserves a transparent, simple way to discover housing that fits their lifestyle and budget.
               </p>
               <p className="mt-4 font-body text-sm font-light leading-relaxed text-muted-foreground">
-                With 7 completed projects and a reputation for architectural excellence, we continue to raise the standard for premium residential developments in Kenya's capital.
+                From affordable bedsitters in Kasarani to modern apartments in Kilimani, we are building the tools that help Kenyans find homes near universities, workplaces, and transport routes.
               </p>
             </motion.div>
           </div>
@@ -65,8 +65,8 @@ const About = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid gap-12 md:grid-cols-2">
             {[
-              { label: "Our Mission", text: "To develop premium residential properties that exceed expectations in design, quality, and livability, creating homes that families cherish for generations." },
-              { label: "Our Vision", text: "To be East Africa's most respected luxury residential developer, known for architectural innovation, uncompromising quality, and creating thriving communities." },
+              { label: "Our Mission", text: "To simplify accommodation discovery for Kenyan students and young professionals by providing transparent, easy-to-use tools to search, compare, and choose suitable housing across the country." },
+              { label: "Our Vision", text: "To be Kenya's most trusted housing discovery platform — known for transparency, accessibility, and empowering young Kenyans to find homes that match their budgets and lifestyles." },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }} className="border border-border p-10">
                 <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">{item.label}</span>

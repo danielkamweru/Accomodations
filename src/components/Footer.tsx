@@ -12,7 +12,7 @@ const Footer = () => {
               ACCOMODATIONS
             </h3>
             <p className="mt-4 font-body text-sm font-light leading-relaxed opacity-80">
-              Premium residential developer crafting luxury townhouses in Lavington, Nairobi. Where architectural excellence meets refined living.
+              Kenyan student and young professional housing finder. Discover, compare, and choose accommodation near universities, workplaces, and transport routes.
             </p>
             <div className="mt-6 flex gap-4">
               {[Instagram, Facebook, Twitter, Linkedin].map((Icon, i) => (
@@ -50,11 +50,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="shrink-0 opacity-60" />
-                <span className="font-body text-sm font-light opacity-80">+254 700 000 000</span>
+                 <span className="font-body text-sm font-light opacity-80">+254 723 832 126</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 opacity-60" />
-                <span className="font-body text-sm font-light opacity-80">info@accomodations.co.ke</span>
+                 <span className="font-body text-sm font-light opacity-80">kamwerudaniel5@gmail.com</span>
               </li>
             </ul>
           </div>

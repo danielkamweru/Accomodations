@@ -3,12 +3,12 @@ import SectionHeader from "./SectionHeader";
 import { MapPin, Compass, Gem, TreePine, ShieldCheck, Users } from "lucide-react";
 
 const features = [
-  { icon: MapPin, title: "Prime Locations", description: "Strategically located in Lavington, one of Nairobi's most prestigious neighborhoods." },
-  { icon: Compass, title: "Architectural Design", description: "Contemporary architecture that harmonizes with the natural surroundings." },
-  { icon: Gem, title: "Luxury Finishes", description: "Premium materials and meticulous craftsmanship in every detail." },
-  { icon: TreePine, title: "Private Gardens", description: "Lush landscaped gardens providing tranquil outdoor living spaces." },
-  { icon: ShieldCheck, title: "Secure Communities", description: "Gated developments with 24/7 security and controlled access." },
-  { icon: Users, title: "Family Friendly", description: "Thoughtful layouts designed for modern family living." },
+  { icon: MapPin, title: "Wide Location Coverage", description: "Search across Nairobi, Kiambu, Kajiado, and surrounding areas — from Kasarani to Rongai, Juja to Kilimani." },
+  { icon: Compass, title: "Powerful Filters", description: "Filter by budget, property type, room type, amenities, and furnishing to narrow down options fast." },
+  { icon: Gem, title: "Verified Listings", description: "Curated demo listings with clear rent, deposit, and availability details so you can compare with confidence." },
+  { icon: TreePine, title: "Budget-Friendly Options", description: "Discover affordable bedsitters, single rooms, and shared accommodation suited for students and young professionals." },
+  { icon: ShieldCheck, title: "Save & Compare", description: "Save favourites, compare properties side-by-side, and track recently viewed homes — all in one place." },
+  { icon: Users, title: "Built for Students & Professionals", description: "Designed for the unique needs of Kenyan students and young professionals looking for convenient, affordable housing." },
 ];
 
 const WhyChooseUs = () => {
