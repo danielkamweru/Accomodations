@@ -22,30 +22,47 @@ const BEDROOM_OPTIONS = [
   { label: "4+ BR", value: 4 },
 ];
 
+const ROOM_TYPE_OPTIONS: { label: string; value: RoomType }[] = [
+  { label: "Entire Unit", value: "Entire Unit" },
+  { label: "Single Room", value: "Single Room" },
+  { label: "Shared Room", value: "Shared" },
+  { label: "Double Room", value: "Double Room" },
+];
+
 export default function Properties() {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
   const [type, setType] = useState<PropertyType | "">("");
+  const [roomType, setRoomType] = useState<RoomType | "">("");
   const [bedrooms, setBedrooms] = useState<number | "">("");
   const [minRent, setMinRent] = useState("");
   const [maxRent, setMaxRent] = useState("");
   const [furnished, setFurnished] = useState<boolean | "">("");
   const [availability, setAvailability] = useState<AvailabilityStatus | "">("");
+  const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
   const [sort, setSort] = useState<SortOption>("relevance");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
-  const activeFilterCount = [location, type, bedrooms !== "", minRent, maxRent, furnished !== "", availability]
+  const activeFilterCount = [location, type, roomType, bedrooms !== "", minRent, maxRent, furnished !== "", availability, selectedAmenities.length > 0]
     .filter(Boolean).length;
 
   function clearFilters() {
     setLocation("");
     setType("");
+    setRoomType("");
     setBedrooms("");
     setMinRent("");
     setMaxRent("");
     setFurnished("");
     setAvailability("");
+    setSelectedAmenities([]);
     setSearch("");
+  }
+
+  function toggleAmenity(amenity: string) {
+    setSelectedAmenities((prev) =>
+      prev.includes(amenity) ? prev.filter((a) => a !== amenity) : [...prev, amenity]
+    );
   }
 
   const filtered = useMemo(() => {
@@ -63,6 +80,7 @@ export default function Properties() {
     }
     if (location) result = result.filter((p) => p.area === location);
     if (type) result = result.filter((p) => p.propertyType === type);
+    if (roomType) result = result.filter((p) => p.roomType === roomType);
     if (bedrooms !== "") {
       result = result.filter((p) =>
         bedrooms === 4 ? p.bedrooms >= 4 : p.bedrooms === bedrooms
@@ -72,6 +90,11 @@ export default function Properties() {
     if (maxRent) result = result.filter((p) => p.rentPerMonth <= Number(maxRent));
     if (furnished !== "") result = result.filter((p) => p.furnished === furnished);
     if (availability) result = result.filter((p) => p.availability === availability);
+    if (selectedAmenities.length > 0) {
+      result = result.filter((p) =>
+        selectedAmenities.every((a) => p.amenities.includes(a))
+      );
+    }
 
     switch (sort) {
       case "price-asc":
@@ -86,7 +109,7 @@ export default function Properties() {
     }
 
     return result;
-  }, [search, location, type, bedrooms, minRent, maxRent, furnished, availability, sort]);
+  }, [search, location, type, roomType, bedrooms, minRent, maxRent, furnished, availability, selectedAmenities, sort]);
 
   return (
     <div className="min-h-screen">
@@ -216,22 +239,65 @@ export default function Properties() {
                 </select>
               </div>
 
-              {/* Property type */}
-              <div>
-                <label className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                  Property Type
-                </label>
-                <select
-                  value={type}
-                  onChange={(e) => setType(e.target.value as PropertyType | "")}
-                  className="mt-2 w-full border border-border bg-background px-3 py-2 font-body text-sm text-foreground focus:border-accent focus:outline-none"
-                >
-                  <option value="">All types</option>
-                  {PROPERTY_TYPES.map((t) => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
-                </select>
-              </div>
+               {/* Property type */}
+               <div>
+                 <label className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                   Property Type
+                 </label>
+                 <select
+                   value={type}
+                   onChange={(e) => setType(e.target.value as PropertyType | "")}
+                   className="mt-2 w-full border border-border bg-background px-3 py-2 font-body text-sm text-foreground focus:border-accent focus:outline-none"
+                 >
+                   <option value="">All types</option>
+                   {PROPERTY_TYPES.map((t) => (
+                     <option key={t} value={t}>{t}</option>
+                   ))}
+                 </select>
+               </div>
+
+               {/* Room type */}
+               <div>
+                 <label className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                   Room Type
+                 </label>
+                 <select
+                   value={roomType}
+                   onChange={(e) => setRoomType(e.target.value as RoomType | "")}
+                   className="mt-2 w-full border border-border bg-background px-3 py-2 font-body text-sm text-foreground focus:border-accent focus:outline-none"
+                 >
+                   <option value="">Any room type</option>
+                   {ROOM_TYPE_OPTIONS.map((o) => (
+                     <option key={o.value} value={o.value}>{o.label}</option>
+                   ))}
+                 </select>
+               </div>
+
+               {/* Amenities */}
+               <div className="sm:col-span-2 lg:col-span-4">
+                 <label className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                   Amenities
+                 </label>
+                 <div className="mt-3 flex flex-wrap gap-2">
+                   {AMENITY_OPTIONS.map((amenity) => {
+                     const active = selectedAmenities.includes(amenity);
+                     return (
+                       <button
+                         key={amenity}
+                         type="button"
+                         onClick={() => toggleAmenity(amenity)}
+                         className={`rounded-sm border px-3 py-1.5 font-body text-xs transition-colors ${
+                           active
+                             ? "border-primary bg-primary text-primary-foreground"
+                             : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                         }`}
+                       >
+                         {amenity}
+                       </button>
+                     );
+                   })}
+                 </div>
+               </div>
 
               {/* Bedrooms */}
               <div>
