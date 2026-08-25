@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, SlidersHorizontal, X } from "lucide-react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
@@ -42,6 +43,45 @@ export default function Properties() {
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
   const [sort, setSort] = useState<SortOption>("relevance");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (!category) return;
+
+    switch (category) {
+      case "near-campus":
+        setLocation("Juja");
+        break;
+      case "near-cbd":
+        setLocation("Kilimani");
+        break;
+      case "near-transport":
+        setLocation("Thika Road");
+        break;
+      case "budget-friendly":
+        setMaxRent("20000");
+        break;
+      case "student-housing":
+        setType("Student Housing");
+        break;
+      case "single-rooms":
+        setRoomType("Single Room");
+        break;
+      case "bedsitters":
+        setType("Bedsitter");
+        break;
+      case "one-bedroom":
+        setBedrooms(1);
+        break;
+      case "shared":
+        setRoomType("Shared");
+        break;
+      default:
+        break;
+    }
+  }, [searchParams]);
 
   const activeFilterCount = [location, type, roomType, bedrooms !== "", minRent, maxRent, furnished !== "", availability, selectedAmenities.length > 0]
     .filter(Boolean).length;
