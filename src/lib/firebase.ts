@@ -23,6 +23,14 @@ const missingKeys = REQUIRED_KEYS.filter((key) => !firebaseConfig[key as keyof t
 if (missingKeys.length > 0) {
   console.warn("[Auth] Missing Firebase environment variables:", missingKeys.join(", "));
   console.warn("[Auth] Authentication features will be disabled until these are configured.");
+  console.warn("[Auth] Fix: In Vercel → Settings → Environment Variables, add these as Config (no VITE_ prefix):");
+  console.warn("[Auth]   FIREBASE_API_KEY");
+  console.warn("[Auth]   FIREBASE_AUTH_DOMAIN");
+  console.warn("[Auth]   FIREBASE_PROJECT_ID");
+  console.warn("[Auth]   FIREBASE_STORAGE_BUCKET");
+  console.warn("[Auth]   FIREBASE_MESSAGING_SENDER_ID");
+  console.warn("[Auth]   FIREBASE_APP_ID");
+  console.warn("[Auth] Then redeploy. See vite.config.ts for mapping details.");
 }
 
 let app: FirebaseApp | null = null;
