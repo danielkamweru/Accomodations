@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface FavouritesContextValue {
   favourites: string[];
@@ -11,10 +12,17 @@ const FavouritesContext = createContext<FavouritesContextValue | null>(null);
 
 const STORAGE_KEY = "accomodations_favourites";
 
+function getStorageKey(uid: string | undefined): string {
+  return uid ? `${STORAGE_KEY}_${uid}` : STORAGE_KEY;
+}
+
 export function FavouritesProvider({ children }: { children: ReactNode }) {
+  const { user } = useAuth();
+  const storageKey = getStorageKey(user?.uid);
+
   const [favourites, setFavourites] = useState<string[]>(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
+      const stored = localStorage.getItem(storageKey);
       return stored ? (JSON.parse(stored) as string[]) : [];
     } catch {
       return [];
@@ -22,8 +30,8 @@ export function FavouritesProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(favourites));
-  }, [favourites]);
+    localStorage.setItem(storageKey, JSON.stringify(favourites));
+  }, [favourites, storageKey]);
 
   function isFavourite(id: string) {
     return favourites.includes(id);
