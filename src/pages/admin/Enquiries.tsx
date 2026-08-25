@@ -1,9 +1,9 @@
 const enquiries = [
   { id: 1, name: "Alice Njeri", email: "alice@email.com", phone: "+254 712 345 678", message: "I'm interested in 56 Muhoya Avenue. Can I schedule a viewing?", date: "2024-03-15", status: "New" },
-  { id: 2, name: "James Otieno", email: "james@email.com", phone: "+254 723 456 789", message: "Please send me details about Pyramid Ridge development.", date: "2024-03-14", status: "New" },
+  { id: 2, name: "James Otieno", email: "james@email.com", phone: "+254 723 456 789", message: "Please send me details about Ridgeview Estate development.", date: "2024-03-14", status: "New" },
   { id: 3, name: "Grace Muthoni", email: "grace@email.com", phone: "+254 734 567 890", message: "What payment plans are available for Apple Creek?", date: "2024-03-13", status: "Read" },
   { id: 4, name: "Peter Kamau", email: "peter@email.com", phone: "+254 745 678 901", message: "Would like to discuss investment opportunities.", date: "2024-03-12", status: "Replied" },
-  { id: 5, name: "Mary Wambui", email: "mary@email.com", phone: "+254 756 789 012", message: "Can I get the brochure for Pyramid Palms?", date: "2024-03-11", status: "Replied" },
+  { id: 5, name: "Mary Wambui", email: "mary@email.com", phone: "+254 756 789 012", message: "Can I get the brochure for Palm Gardens?", date: "2024-03-11", status: "Replied" },
 ];
 
 const AdminEnquiries = () => {

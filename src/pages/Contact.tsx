@@ -32,7 +32,7 @@ const Contact = () => {
                 {[
                   { icon: MapPin, label: "Visit Us", value: "Lavington, Nairobi, Kenya" },
                   { icon: Phone, label: "Call Us", value: "+254 700 000 000" },
-                  { icon: Mail, label: "Email Us", value: "info@pyramidbuilders.co.ke" },
+                  { icon: Mail, label: "Email Us", value: "info@accomodations.co.ke" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-primary">

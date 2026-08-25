@@ -10,9 +10,9 @@ const stats = [
 
 const recentEnquiries = [
   { name: "Alice Njeri", project: "56 Muhoya Avenue", date: "2 hours ago", status: "New" },
-  { name: "James Otieno", project: "Pyramid Ridge", date: "5 hours ago", status: "New" },
+  { name: "James Otieno", project: "Ridgeview Estate", date: "5 hours ago", status: "New" },
   { name: "Grace Muthoni", project: "Apple Creek", date: "1 day ago", status: "Read" },
-  { name: "Peter Kamau", project: "Pyramid Palms", date: "2 days ago", status: "Replied" },
+  { name: "Peter Kamau", project: "Palm Gardens", date: "2 days ago", status: "Replied" },
 ];
 
 const AdminDashboard = () => {
