@@ -4,8 +4,8 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PropertyCard from "@/components/PropertyCard";
-import { properties, formatRent, LOCATION_OPTIONS } from "@/data/properties";
-import type { PropertyType, AvailabilityStatus } from "@/data/properties";
+import { properties, formatRent, LOCATION_OPTIONS, AMENITY_OPTIONS } from "@/data/properties";
+import type { PropertyType, AvailabilityStatus, RoomType } from "@/data/properties";
 
 type SortOption = "relevance" | "price-asc" | "price-desc" | "rating";
 
