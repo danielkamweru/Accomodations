@@ -12,18 +12,30 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+const REQUIRED_KEYS = [
+  "VITE_FIREBASE_API_KEY",
+  "VITE_FIREBASE_AUTH_DOMAIN",
+  "VITE_FIREBASE_PROJECT_ID",
+] as const;
+
+const missingKeys = REQUIRED_KEYS.filter((key) => !firebaseConfig[key as keyof typeof firebaseConfig]);
+
+if (missingKeys.length > 0) {
+  console.warn("[Auth] Missing Firebase environment variables:", missingKeys.join(", "));
+  console.warn("[Auth] Authentication features will be disabled until these are configured.");
+}
+
 let app: FirebaseApp | null = null;
 let authInstance: Auth | null = null;
 
 try {
-  if (firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId) {
+  if (missingKeys.length === 0) {
     app = initializeApp(firebaseConfig);
     authInstance = getAuth(app);
-  } else {
-    console.warn("Firebase configuration is incomplete. Authentication features will be disabled.");
+    console.log("[Auth] Firebase initialized successfully for project:", firebaseConfig.projectId);
   }
 } catch (error) {
-  console.warn("Firebase initialization failed:", error);
+  console.error("[Auth] Firebase initialization failed:", error);
 }
 
 export { authInstance as auth };

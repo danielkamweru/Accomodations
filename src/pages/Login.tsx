@@ -79,7 +79,10 @@ export default function Login() {
           <div className="mx-auto max-w-md">
             {disabled && (
               <div className="mb-6 border border-destructive/30 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
-                Authentication is currently unavailable. Please contact support or try again later.
+                <p className="font-semibold">Authentication is currently unavailable.</p>
+                <p className="mt-1 text-xs opacity-80">
+                  Firebase configuration is missing on the server. Check Vercel environment variables and redeploy.
+                </p>
               </div>
             )}
             <motion.form
