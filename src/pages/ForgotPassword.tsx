@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function ForgotPassword() {
-  const { resetPassword, disabled } = useAuth();
+  const { resetPassword } = useAuth();
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
