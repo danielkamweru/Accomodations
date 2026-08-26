@@ -30,7 +30,6 @@ const Contact = () => {
 
               <div className="mt-10 space-y-6">
                 {[
-                  { icon: MapPin, label: "Visit Us", value: "Lavington, Nairobi, Kenya" },
                   { icon: Phone, label: "Call Us", value: "+254 723 832 126" },
                   { icon: Mail, label: "Email Us", value: "kamwerudaniel5@gmail.com" },
                 ].map((item, i) => (
