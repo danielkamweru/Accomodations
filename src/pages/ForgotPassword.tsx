@@ -57,14 +57,6 @@ export default function ForgotPassword() {
       <section className="bg-background py-20 lg:py-28">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mx-auto max-w-md">
-            {disabled && (
-              <div className="mb-6 border border-destructive/30 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
-                <p className="font-semibold">Authentication is currently unavailable.</p>
-                <p className="mt-1 text-xs opacity-80">
-                  Firebase configuration is missing on the server. Check Vercel environment variables and redeploy.
-                </p>
-              </div>
-            )}
             {sent ? (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -130,7 +122,7 @@ export default function ForgotPassword() {
 
                 <button
                   type="submit"
-                  disabled={loading || disabled}
+                  disabled={loading}
                   className="w-full bg-primary py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
                 >
                   {loading ? "Sending…" : "Send Reset Link"}
