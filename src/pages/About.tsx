@@ -48,7 +48,7 @@ const About = () => {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-col justify-center">
               <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">Our Legacy</span>
-              <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground md:text-5xl">Housing for the\nNext Generation</h2>
+              <h2 className="mt-4 font-heading text-4xl font-light tracking-wide text-foreground md:text-5xl">Housing for the <br />Next Generation</h2>
               <p className="mt-6 font-body text-sm font-light leading-relaxed text-muted-foreground">
                 Accomodations was founded with a singular vision: to make finding accommodation in Kenya easier for students and young professionals. We believe everyone deserves a transparent, simple way to discover housing that fits their lifestyle and budget.
               </p>
