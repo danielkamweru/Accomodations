@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const Footer = () => {
+  const socials = [
+    { Icon: Instagram, href: "https://www.instagram.com/real.icon254/" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/in/daniel-kamweru-68670938b/" },
+    { Icon: Facebook, href: "https://web.facebook.com/kamwerudaniel" },
+    { Icon: Twitter, href: "https://x.com/KamweruDan47536" },
+  ];
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 py-20 lg:px-12">
@@ -15,8 +21,8 @@ const Footer = () => {
               Kenyan student and young professional housing finder. Discover, compare, and choose accommodation near universities, workplaces, and transport routes.
             </p>
             <div className="mt-6 flex gap-4">
-              {[Instagram, Facebook, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="opacity-60 transition-opacity hover:opacity-100">
+              {socials.map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noreferrer" className="opacity-60 transition-opacity hover:opacity-100">
                   <Icon size={18} />
                 </a>
               ))}

@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { Target, Eye, Heart, Award } from "lucide-react";
 
+import profileImage from "@/images/profile.jpg";
+
 const leaders = [
-  { name: "Daniel Kamweru", role: "Founder", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-  { name: "Wanjiku Njoroge", role: "Head of Product", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
-  { name: "James Otieno", role: "Community Lead", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
+  { name: "Daniel Kamweru", role: "Founder", image: profileImage },
 ];
 
 const values = [

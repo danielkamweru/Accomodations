@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Star, Heart, BadgeCheck, Bed, Bath } from "lucide-react";
+import { MapPin, Star, Heart, BadgeCheck, Bed, Bath, GitCompare } from "lucide-react";
 import type { Property } from "@/data/properties";
 import { formatRent } from "@/data/properties";
 import { useFavourites } from "@/contexts/FavouritesContext";
+import { useComparison } from "@/contexts/ComparisonContext";
 
 interface PropertyCardProps {
   property: Property;
@@ -25,6 +26,8 @@ const availabilityColors: Record<Property["availability"], string> = {
 const PropertyCard = ({ property, index = 0 }: PropertyCardProps) => {
   const { isFavourite, toggle } = useFavourites();
   const fav = isFavourite(property.id);
+  const { add: addToCompare, remove: removeFromCompare, items: compareItems, canAdd } = useComparison();
+  const isInCompare = compareItems.some((p) => p.id === property.id);
 
   return (
     <motion.div
@@ -67,6 +70,26 @@ const PropertyCard = ({ property, index = 0 }: PropertyCardProps) => {
             size={15}
             className={fav ? "fill-accent text-accent" : "text-foreground/60"}
           />
+        </button>
+
+        {/* Compare button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            if (isInCompare) {
+              removeFromCompare(property.id);
+            } else {
+              addToCompare(property);
+            }
+          }}
+          aria-label={isInCompare ? "Remove from comparison" : "Add to comparison"}
+          className={`absolute right-3 top-14 flex h-8 w-8 items-center justify-center backdrop-blur-sm transition-colors ${
+            isInCompare
+              ? "bg-primary text-primary-foreground"
+              : "bg-background/90 text-foreground/60 hover:bg-background hover:text-foreground"
+          }`}
+        >
+          <GitCompare size={15} />
         </button>
       </div>
 
