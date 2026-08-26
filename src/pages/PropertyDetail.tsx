@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getPropertyBySlug, formatRent } from "@/data/properties";
 import { useFavourites } from "@/contexts/FavouritesContext";
+import { useRecentlyViewed } from "@/contexts/RecentlyViewedContext";
 
 const tabs = ["Overview", "Amenities", "Gallery", "Location", "Enquiry"] as const;
 type Tab = typeof tabs[number];
@@ -18,8 +19,16 @@ export default function PropertyDetail() {
   const { slug } = useParams<{ slug: string }>();
   const property = getPropertyBySlug(slug ?? "");
   const { isFavourite, toggle } = useFavourites();
+  const { add: addToRecentlyViewed } = useRecentlyViewed();
   const [activeTab, setActiveTab] = useState<Tab>("Overview");
   const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (property) {
+      addToRecentlyViewed(property);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug, addToRecentlyViewed]);
 
   if (!property) {
     return (

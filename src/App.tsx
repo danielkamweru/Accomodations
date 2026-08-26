@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { FavouritesProvider } from "@/contexts/FavouritesContext";
+import { RecentlyViewedProvider } from "@/contexts/RecentlyViewedContext";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 // Public pages
@@ -12,6 +13,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Properties from "./pages/Properties";
 import PropertyDetail from "./pages/PropertyDetail";
+import RecentlyViewed from "./pages/RecentlyViewed";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 
@@ -43,14 +45,16 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <FavouritesProvider>
-            <Routes>
-              {/* Public */}
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/properties" element={<Properties />} />
-              <Route path="/properties/:slug" element={<PropertyDetail />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
+            <RecentlyViewedProvider>
+              <Routes>
+                {/* Public */}
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/properties" element={<Properties />} />
+                <Route path="/properties/:slug" element={<PropertyDetail />} />
+                <Route path="/recently-viewed" element={<RecentlyViewed />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
 
               {/* Auth */}
               <Route path="/login" element={<Login />} />
@@ -85,8 +89,9 @@ const App = () => (
 
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </FavouritesProvider>
-        </AuthProvider>
+          </RecentlyViewedProvider>
+        </FavouritesProvider>
+      </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
