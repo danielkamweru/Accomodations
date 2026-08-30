@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Footer = () => {
+  const { user } = useAuth();
   const socials = [
     { Icon: Instagram, href: "https://www.instagram.com/real.icon254/" },
     { Icon: Linkedin, href: "https://www.linkedin.com/in/daniel-kamweru-68670938b/" },
     { Icon: Facebook, href: "https://web.facebook.com/kamwerudaniel" },
     { Icon: Twitter, href: "https://x.com/KamweruDan47536" },
   ];
+
+  const quickLinks = user
+    ? [
+        { label: "Home", path: "/" },
+        { label: "About", path: "/about" },
+        { label: "Properties", path: "/properties" },
+        { label: "Gallery", path: "/gallery" },
+        { label: "Contact", path: "/contact" },
+      ]
+    : [
+        { label: "Home", path: "/" },
+      ];
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 py-20 lg:px-12">
@@ -33,13 +47,13 @@ const Footer = () => {
           <div>
             <h4 className="font-body text-xs font-semibold uppercase tracking-[0.2em]">Quick Links</h4>
             <ul className="mt-6 space-y-3">
-              {["About", "Projects", "Gallery", "Contact"].map((item) => (
-                <li key={item}>
+              {quickLinks.map((item) => (
+                <li key={item.path}>
                   <Link
-                    to={`/${item.toLowerCase()}`}
+                    to={item.path}
                     className="font-body text-sm font-light opacity-70 transition-opacity hover:opacity-100"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

@@ -53,49 +53,33 @@ const App = () => (
                 <Routes>
                   {/* Public */}
                   <Route path="/" element={<Index />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/properties" element={<Properties />} />
-                  <Route path="/properties/:slug" element={<PropertyDetail />} />
-              <Route path="/recently-viewed" element={<RecentlyViewed />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/affordability" element={<Affordability />} />
-              <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
 
-              {/* Auth */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
+                  {/* Protected */}
+                  <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+                  <Route path="/properties" element={<ProtectedRoute><Properties /></ProtectedRoute>} />
+                  <Route path="/properties/:slug" element={<ProtectedRoute><PropertyDetail /></ProtectedRoute>} />
+                  <Route path="/recently-viewed" element={<ProtectedRoute><RecentlyViewed /></ProtectedRoute>} />
+                  <Route path="/compare" element={<ProtectedRoute><Compare /></ProtectedRoute>} />
+                  <Route path="/affordability" element={<ProtectedRoute><Affordability /></ProtectedRoute>} />
+                  <Route path="/gallery" element={<ProtectedRoute><Gallery /></ProtectedRoute>} />
+                  <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+                  <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                  <Route path="/favourites" element={<ProtectedRoute><Favourites /></ProtectedRoute>} />
 
-              {/* Protected account pages */}
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/favourites"
-                element={
-                  <ProtectedRoute>
-                    <Favourites />
-                  </ProtectedRoute>
-                }
-              />
+                  {/* Admin (existing — now protected) */}
+                  <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="projects" element={<AdminProjects />} />
+                    <Route path="add-project" element={<AddProject />} />
+                    <Route path="enquiries" element={<AdminEnquiries />} />
+                  </Route>
 
-              {/* Admin (existing) */}
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<AdminDashboard />} />
-                <Route path="projects" element={<AdminProjects />} />
-                <Route path="add-project" element={<AddProject />} />
-                <Route path="enquiries" element={<AdminEnquiries />} />
-              </Route>
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </ComparisonProvider>
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </ComparisonProvider>
             </RecentlyViewedProvider>
           </FavouritesProvider>
         </AuthProvider>
