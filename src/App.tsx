@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { FavouritesProvider } from "@/contexts/FavouritesContext";
 import { RecentlyViewedProvider } from "@/contexts/RecentlyViewedContext";
 import { ComparisonProvider } from "@/contexts/ComparisonContext";
+import { ProfilePreferencesProvider } from "@/contexts/ProfilePreferencesContext";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 // Public pages
@@ -50,7 +51,8 @@ const App = () => (
           <FavouritesProvider>
             <RecentlyViewedProvider>
               <ComparisonProvider>
-                <Routes>
+                <ProfilePreferencesProvider>
+                  <Routes>
                   {/* Public */}
                   <Route path="/" element={<Index />} />
                   <Route path="/login" element={<Login />} />
@@ -79,11 +81,12 @@ const App = () => (
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
-              </ComparisonProvider>
-            </RecentlyViewedProvider>
-          </FavouritesProvider>
-        </AuthProvider>
-      </BrowserRouter>
+              </ProfilePreferencesProvider>
+            </ComparisonProvider>
+          </RecentlyViewedProvider>
+        </FavouritesProvider>
+      </AuthProvider>
+    </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
