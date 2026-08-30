@@ -16,6 +16,7 @@ import Properties from "./pages/Properties";
 import PropertyDetail from "./pages/PropertyDetail";
 import RecentlyViewed from "./pages/RecentlyViewed";
 import Compare from "./pages/Compare";
+import Affordability from "./pages/Affordability";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 
@@ -55,9 +56,10 @@ const App = () => (
                   <Route path="/about" element={<About />} />
                   <Route path="/properties" element={<Properties />} />
                   <Route path="/properties/:slug" element={<PropertyDetail />} />
-                  <Route path="/recently-viewed" element={<RecentlyViewed />} />
-                  <Route path="/compare" element={<Compare />} />
-                  <Route path="/gallery" element={<Gallery />} />
+              <Route path="/recently-viewed" element={<RecentlyViewed />} />
+              <Route path="/compare" element={<Compare />} />
+              <Route path="/affordability" element={<Affordability />} />
+              <Route path="/gallery" element={<Gallery />} />
                   <Route path="/contact" element={<Contact />} />
 
               {/* Auth */}
