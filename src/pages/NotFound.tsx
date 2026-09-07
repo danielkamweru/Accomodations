@@ -1,22 +1,31 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <section className="flex min-h-[70vh] flex-col items-center justify-center bg-secondary/20 pt-20">
+        <div className="text-center">
+          <p className="font-heading text-8xl font-light tracking-wide text-muted-foreground/30 md:text-9xl">
+            404
+          </p>
+          <h1 className="mt-4 font-heading text-3xl font-light tracking-wide text-foreground md:text-4xl">
+            Page not found
+          </h1>
+          <p className="mt-4 max-w-md font-body text-sm font-light text-muted-foreground">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+          <Link
+            to="/"
+            className="mt-8 inline-block bg-primary px-8 py-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Return Home
+          </Link>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 };

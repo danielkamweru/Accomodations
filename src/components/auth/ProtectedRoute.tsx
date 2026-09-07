@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import AuthRequired from "@/pages/AuthRequired";
+import { PageLoader } from "@/components/ui/LoadingSpinner";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -22,7 +23,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     };
   }, [loading]);
 
-  if (loading) return null;
+  if (loading) return <PageLoader />;
 
   if (!user) {
     return <AuthRequired />;

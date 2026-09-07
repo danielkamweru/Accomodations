@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin, Bed, Bath, Building, CheckCircle, X, Star,
-  Heart, BadgeCheck, Calendar, Home, ArrowLeft,
+  Heart, BadgeCheck, Calendar, Home, ArrowLeft, GitCompare, Wallet,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +11,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { getPropertyBySlug, formatRent } from "@/data/properties";
 import { useFavourites } from "@/contexts/FavouritesContext";
 import { useRecentlyViewed } from "@/contexts/RecentlyViewedContext";
+import { useComparison } from "@/contexts/ComparisonContext";
 
 const tabs = ["Overview", "Amenities", "Gallery", "Location", "Enquiry"] as const;
 type Tab = typeof tabs[number];
@@ -20,6 +21,7 @@ export default function PropertyDetail() {
   const property = getPropertyBySlug(slug ?? "");
   const { isFavourite, toggle } = useFavourites();
   const { add: addToRecentlyViewed } = useRecentlyViewed();
+  const { add: addToCompare, items: compareItems, canAdd } = useComparison();
   const [activeTab, setActiveTab] = useState<Tab>("Overview");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
@@ -29,6 +31,8 @@ export default function PropertyDetail() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug, addToRecentlyViewed]);
+
+  const isInCompare = compareItems.some((p) => p.id === property?.id);
 
   if (!property) {
     return (
@@ -117,6 +121,22 @@ export default function PropertyDetail() {
           className="absolute right-6 top-24 flex h-10 w-10 items-center justify-center bg-background/90 backdrop-blur-sm transition-colors hover:bg-background"
         >
           <Heart size={18} className={fav ? "fill-accent text-accent" : "text-foreground/60"} />
+        </button>
+
+        {/* Compare button */}
+        <button
+          onClick={() => {
+            if (isInCompare) {
+              // no remove action on detail page — navigate to compare
+              window.location.href = "/compare";
+            } else {
+              addToCompare(property);
+            }
+          }}
+          aria-label={isInCompare ? "Go to comparison" : "Add to comparison"}
+          className="absolute right-6 top-36 flex h-10 w-10 items-center justify-center bg-background/90 backdrop-blur-sm transition-colors hover:bg-background"
+        >
+          <GitCompare size={18} className={isInCompare ? "text-accent" : "text-foreground/60"} />
         </button>
       </section>
 
@@ -228,6 +248,24 @@ export default function PropertyDetail() {
                 <Heart size={13} className={fav ? "fill-accent" : ""} />
                 {fav ? "Saved" : "Save Property"}
               </button>
+              <button
+                onClick={() => {
+                  if (isInCompare) {
+                    window.location.href = "/compare";
+                  } else {
+                    addToCompare(property);
+                  }
+                }}
+                disabled={!canAdd(property.id) && !isInCompare}
+                className={`mt-3 flex w-full items-center justify-center gap-2 border py-3.5 font-body text-xs font-semibold uppercase tracking-[0.2em] transition-colors disabled:opacity-60 ${
+                  isInCompare
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border text-foreground hover:border-foreground"
+                }`}
+              >
+                <GitCompare size={13} />
+                {isInCompare ? "In Comparison" : "Add to Comparison"}
+              </button>
             </div>
           </div>
         </div>
@@ -319,6 +357,40 @@ export default function PropertyDetail() {
                     <span className="font-body text-sm font-light text-foreground">{item}</span>
                   </div>
                 ))}
+              </div>
+
+              {/* Nearby locations */}
+              {property.nearby && property.nearby.length > 0 && (
+                <div className="mt-8">
+                  <h3 className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
+                    Nearby
+                  </h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {property.nearby.map((n) => (
+                      <span
+                        key={n}
+                        className="border border-border px-3 py-1.5 font-body text-xs text-muted-foreground"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Affordability relevance */}
+              <div className="mt-8 border-t border-border pt-6">
+                <div className="flex items-center gap-3">
+                  <Wallet size={16} className="text-accent" />
+                  <div>
+                    <p className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
+                      Affordability
+                    </p>
+                    <p className="mt-1 font-body text-sm font-light text-muted-foreground">
+                      Monthly rent is {formatRent(property.rentPerMonth)}. For a healthy budget, aim to keep housing costs below 40% of your monthly income. Visit the Affordability tool to see what fits your finances.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
