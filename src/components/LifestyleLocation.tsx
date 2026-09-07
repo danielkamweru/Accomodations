@@ -15,10 +15,10 @@ const LifestyleLocation = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <SectionHeader
-              subtitle="Location"
-              title="Life in Lavington"
-              description="Lavington is one of Nairobi's most prestigious residential neighborhoods, offering a perfect blend of tranquility, convenience, and cosmopolitan living."
+          <SectionHeader
+            subtitle="Location"
+            title="Life in Nairobi"
+            description="Nairobi offers a perfect blend of affordability, convenience, and accessibility — with properties near universities, the CBD, and major transport routes."
               align="left"
             />
 
@@ -51,9 +51,11 @@ const LifestyleLocation = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex items-center justify-center bg-muted"
+            role="img"
+            aria-label="Map of Nairobi showing property locations"
           >
             <div className="flex h-full min-h-[400px] w-full items-center justify-center border border-border">
-              <p className="font-body text-sm text-muted-foreground">Map Integration Placeholder</p>
+              <p className="font-body text-sm text-muted-foreground">Map view not available in demo</p>
             </div>
           </motion.div>
         </div>

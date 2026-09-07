@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
         <SectionHeader
           subtitle="Why Choose Us"
           title="The Accomodations Difference"
-          description="Every Accomodations development is a testament to our uncompromising standards of quality, design, and attention to detail."
+          description="We help students and young professionals discover, compare, and choose suitable accommodation across Kenya — from affordable bedsitters to modern apartments."
           light
         />
 

@@ -34,11 +34,20 @@ const GalleryPreview = () => {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="group cursor-pointer overflow-hidden"
               onClick={() => setLightbox(img)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setLightbox(img);
+                }
+              }}
+              aria-label={`View property image ${i + 1} of ${galleryImages.length} in full screen`}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={img}
-                  alt="Gallery"
+                  alt={`Property interior view ${i + 1}`}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
@@ -60,6 +69,7 @@ const GalleryPreview = () => {
             <button
               onClick={() => setLightbox(null)}
               className="absolute right-6 top-6 text-background/80 hover:text-background"
+              aria-label="Close full screen view"
             >
               <X size={28} />
             </button>
