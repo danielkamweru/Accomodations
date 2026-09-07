@@ -14,8 +14,11 @@ const CTASection = () => {
           <span className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             Begin Your Journey
           </span>
-          <h2 className="mt-6 font-heading text-4xl font-light tracking-wide text-primary-foreground md:text-5xl lg:text-6xl">
-            Discover Your Next\nHome in Kenya
+          <h2 className="mt-6 font-heading text-4xl font-light tracking-wide text-primary-foreground md:text-5xl lg:text-6xl whitespace-pre-line">
+            Discover Your Next
+            {" "}
+            <br className="hidden sm:inline" />
+            Home in Kenya
           </h2>
           <p className="mx-auto mt-6 max-w-xl font-body text-sm font-light leading-relaxed text-primary-foreground/70">
             Browse verified accommodation options near universities, the CBD, and major transport routes. Save favourites, compare properties, and find what fits your budget.
